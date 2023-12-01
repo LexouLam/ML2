@@ -36,3 +36,12 @@ Summary :
 >accuracy : calculated with class predictions (True,False), both classes are important
 >PR AUC = average precision : calculated with probabilities (range(0,1)), one class (positive) is important
 >F1 score : calculated with class predictions (True,False), one class (positive) is important
+
+Questions à se poser pour choisir la métrique : 
+
+1)est-ce que j'ai une classe + importante ?
+    OUI => F1, AP
+    NON => 2)est-ce que mon dataset est équilibré ? 
+                OUI => ROC AUC, accuracy
+                NON => balanced accuracy OU si bcp de négatifs (souvent le cas) on ignore les vrais négatifs et on utilise F1, AP
+Métriques qui utilisent le threshold :utilisées que quand on le connait à l'avance, sinon on tune le modèle et ensuite on cherche le best threshold 
