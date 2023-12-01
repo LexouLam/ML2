@@ -1,0 +1,38 @@
+1) What are the necessary preprocessing steps regarding:
+a) classes ?
+transform to numeric by reencoding categories
+b) categorical features ? 
+transform to new features if the number of categories > 2, if not keep 0 and 1 
+c) continuous features ?
+scale it with standardization
+
+2) Confusion matrix:
+a)How many patient were incorrectly diagnosed with a Heart disease (false positives) ?
+6 FP (out of 32+6 detected positive)
+b)How many patient were incorrectly diagnosed as being Healthy (false negatives)?
+9 FN (out of 44+9 detected negative)
+
+we want to reduce the number of patient incorrectly diagnosed as being Healthy => the number of FN => we want a recall important 
+
+3) Changing the threshold:
+a)What is the precision if we change the threshold to have a 0.95 recall ? 
+0.47
+b) How many patient were incorrectly diagnosed as being Healthy (false negatives)?
+0
+
+
+4) Choosing an overall metric:
+
+a) If I can compute my test sample probabilities and care more about the positive class, which overall metric should I use to compare classifiers ? 
+
+precision-recall curve and PR AUC (=average precision score)
+
+b) And if I only have the class predictions and no probabilities ?
+
+F1 score if you care more about a class, accuracy when all classes are important & balanced problem (counts in classes are similar)
+
+Summary :
+>ROC AUC : calculated with probabilities (range(0,1)), both classes are important and balanced dataset
+>accuracy : calculated with class predictions (True,False), both classes are important
+>PR AUC = average precision : calculated with probabilities (range(0,1)), one class (positive) is important
+>F1 score : calculated with class predictions (True,False), one class (positive) is important
